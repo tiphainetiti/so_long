@@ -1,0 +1,69 @@
+19 mars :
+Inclure gnl et printf dans ma libft ?
+
+
+20 mars : PARSING MAP
+- gnl pour tout mettre dans une string,
+==> ft_split(map_line, '\n)
+- faire fonction erreur
+
+1. is_rectangular OK
+2. is_playable : is_big_enough 3x5 minimum, chemin possible, exit, player etc... OK
+3. is_full OK
+Continuer apres manger : il manque 1 free, map_array OK
+
+==> flood_fill : tenter toutes les directions, != WALL{map_array == WALL} pour ne pas repasser
+                    recursive : ft_flood_fill(x -1), ft_flood_fill(x +1), ft_flood_fill(y -1), ft_flood_fill(y +1)
+Suite: trop contente de la journee, continuer parsing --> is_big_enough
+
+21 mars :
+- empty map + si ligne vide entre
+- fermer fenetre avec ESC et la croix
+
+22 mars : commencement fill_window
+Suite : reussir a mettre la bonne image selon la map
+Probleme : mets que des wall dans la map, regarder map.array[x][y] pourquoi ne capte pas le bon element
+
+25 mars : ft_fill_window OK
+Suite :
+    - revoir parsing "Empty map"
+    - alleger mon gros main
+    --> commencer mouvement / esc, croix
+
+26 mars : trop fatiguee pour lire la docu
+Suite :
+    - mlx_hook : faire une fonction key_handler
+    = selon keycode ()
+    = enum (UP, LEFT, DOWN, RIGHT)
+
+27 mars : movements OK
+Suite :
+    - init movement = 0; OK
+    - faire conditions des movements (collect, wall, etc..)
+C BIEN PARTI !!!!
+
+28 mars :
+Suite apres manger : implementer immobile_player, map_conditions
+-- > Gerer exit_end_game
+Suite :
+    - Pouvoir traverser mon exit_locked
+CA MARCHE IHIHIHIHIH YEAH
+
+29 mars : franchement.... soon
+Suite :
+    - manque des free (valgrind),
+
+2 avril: bon forme 0
+    - Changer ft_get_map pour prendre vars en parametres et close le fd a chaque sortie d'erreur
+    - manque 6 frees
+
+3 avril : free OOKKK
+Suite :
+    - bonus : afficher mouvement dans wind
+
+4 avril : commencement patrouille --> demander thomas pour ennemy_mov+collect
+mouv dans wind OKKK
+Suite :
+    - partie obligatoire : github so_long
+    - partie bonus : github so_long_bonus
+    - mouv de l'enemy ====> regarder enemy_mov
