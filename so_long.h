@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:31:06 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/04 19:52:53 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/05 16:18:24 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	destroy_img(t_vars *vars);
 int		print_mov(t_vars *vars);
 
 // bonus_ennemy.c
-void	get_enemy_position(t_vars *vars);
-int		enemy_mov(t_vars *vars);
+void	init_enemy_position(t_vars *vars);
+int		enemy_mov(int keycode, t_vars *vars);
 
 #endif

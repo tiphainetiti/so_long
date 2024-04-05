@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:13:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/04 19:48:29 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/05 16:55:42 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_start_game(t_vars *vars)
 	vars->mlx.wind.width = vars->img.width * vars->map.width;
 	vars->mlx.wind.wind = mlx_new_window(vars->mlx.mlx, vars->mlx.wind.width,
 			vars->mlx.wind.height, "so_long");
-	get_enemy_position(vars);
 	ft_fill_window(vars);
 }
 
@@ -52,7 +51,6 @@ void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 	else if (vars->map.array[new_pos_x][new_pos_y] == '1')
 		return ;
 	update_player_position(vars, new_pos_x, new_pos_y);
-	enemy_mov(vars);
 	ft_fill_window(vars);
 }
 
@@ -75,5 +73,6 @@ int	key_handler(int keycode, t_vars *vars)
 		run_game(vars, x, y + 1);
 	else if (keycode == ESC)
 		close_window(vars);
+	enemy_mov(keycode, vars);
 	return (0);
 }

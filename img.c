@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:35:45 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/04 19:33:31 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/05 17:42:49 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,7 @@ void	ft_fill_window(t_vars *vars)
 
 	x = 0;
 	img = 0;
+	print_map(vars);
 	while (x < vars->map.height)
 	{
 		y = 0;

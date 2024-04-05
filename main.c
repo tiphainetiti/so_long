@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:30:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/04 19:52:24 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/05 17:04:54 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	main(int ac, char **av)
 		if (vars.fd < 0)
 			return (ft_print_error("Missing map."), 0);
 		ft_map(&vars);
+		// init_enemy_position(&vars);
 		vars.mlx.mlx = mlx_init();
 		ft_img(&vars);
 		ft_start_game(&vars);
 		mlx_key_hook(vars.mlx.wind.wind, key_handler, &vars);
-		mlx_key_hook(vars.mlx.wind.wind, enemy_mov, &vars);
 		mlx_hook(vars.mlx.wind.wind, DestroyNotify, KeyPressMask, close_window,
 			&vars);
 		mlx_loop_hook(vars.mlx.mlx, print_mov, &vars);

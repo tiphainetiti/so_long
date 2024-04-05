@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 13:12:34 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/04 12:15:56 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/05 19:34:41 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ typedef struct s_player
 
 typedef struct s_enemy
 {
-	int			i;
 	int			position_x;
 	int			position_y;
+	int			up;
+	int			down;
+	int			left;
+	int			right;
 }				t_enemy;
 
 typedef struct s_map

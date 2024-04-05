@@ -67,3 +67,7 @@ Suite :
     - partie obligatoire : github so_long
     - partie bonus : github so_long_bonus
     - mouv de l'enemy ====> regarder enemy_mov
+
+5 avril : enemy_mov ancien OK --> tu peux utiliser si tu veux push
+Sinon SUITE :
+    - trouver vers ou l'enemy doit aller
