@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:30:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/05 17:04:54 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/08 18:48:30 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	print_map(t_vars *vars)
 	}
 }
 
+int	animations(void)
+{
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_vars	vars;
@@ -39,7 +44,6 @@ int	main(int ac, char **av)
 		if (vars.fd < 0)
 			return (ft_print_error("Missing map."), 0);
 		ft_map(&vars);
-		// init_enemy_position(&vars);
 		vars.mlx.mlx = mlx_init();
 		ft_img(&vars);
 		ft_start_game(&vars);
@@ -47,6 +51,7 @@ int	main(int ac, char **av)
 		mlx_hook(vars.mlx.wind.wind, DestroyNotify, KeyPressMask, close_window,
 			&vars);
 		mlx_loop_hook(vars.mlx.mlx, print_mov, &vars);
+		mlx_loop_hook(vars.mlx.mlx, animations, &vars);
 		vars.fd = close(vars.fd);
 		mlx_loop(vars.mlx.mlx);
 	}

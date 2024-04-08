@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:13:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/05 16:55:42 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/08 18:13:55 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 		}
 		vars->map.array[new_pos_x][new_pos_y] = 'P';
 	}
-	else if (vars->map.array[new_pos_x][new_pos_y] == 'E'
-		&& vars->game.exit_unlocked == true)
+	else if ((vars->map.array[new_pos_x][new_pos_y] == 'E'
+			&& vars->game.exit_unlocked == true)
+		|| vars->map.array[new_pos_x][new_pos_y] == 'e')
 		close_window(vars);
 	else if (vars->map.array[new_pos_x][new_pos_y] == '1')
 		return ;

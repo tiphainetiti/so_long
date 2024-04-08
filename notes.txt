@@ -71,3 +71,4 @@ Suite :
 5 avril : enemy_mov ancien OK --> tu peux utiliser si tu veux push
 Sinon SUITE :
     - trouver vers ou l'enemy doit aller
+    - corriger player traverse enemy

@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:31:06 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/05 16:18:24 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/08 17:56:40 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <time.h>
 
 void	print_map(t_vars *vars);
+void	print_map_copy(t_vars *vars);
 
 // ft_error.c
 void	ft_print_error(char *str);

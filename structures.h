@@ -6,13 +6,13 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 13:12:34 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/05 19:34:41 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/08 18:29:59 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
-# define IMG_PATH "img/"
+# define IMG_PATH "img_64/"
 # include <stdbool.h>
 
 typedef struct s_player
@@ -26,6 +26,8 @@ typedef struct s_enemy
 {
 	int			position_x;
 	int			position_y;
+	int			diff_x;
+	int			diff_y;
 	int			up;
 	int			down;
 	int			left;

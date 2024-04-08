@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:22:48 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/05 20:09:20 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/08 19:00:42 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,89 +69,86 @@ void	enemy_run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 	ft_fill_window(vars);
 }
 
-int	way_to_player(t_vars *vars, int enemy_x, int enemy_y)
-{
-	int	player_x;
-	int	player_y;
-	int	go;
-
-	player_x = vars->map.player.position_x;
-	player_y = vars->map.player.position_y;
-	if (player_x > enemy_x)
-		vars->map.enemy.right = player_x - enemy_x;
-	else
-		vars->map.enemy.left = enemy_x - player_x;
-	if (player_y > enemy_y)
-		vars->map.enemy.down = player_y - enemy_y;
-	else
-		vars->map.enemy.up = enemy_y - player_y;
-	printf("right = %d\n", vars->map.enemy.right);
-	printf("left = %d\n", vars->map.enemy.left);
-	printf("up = %d\n", vars->map.enemy.up);
-	printf("down = %d\n", vars->map.enemy.down);
-	go = vars->map.enemy.right;
-	if (go > vars->map.enemy.down)
-		go = vars->map.enemy.down;
-	if (go > vars->map.enemy.left)
-		go = vars->map.enemy.left;
-	if (go > vars->map.enemy.up)
-		go = vars->map.enemy.up;
-	return (go);
-}
-
+// ENEMY_MOV QUI MARCHE
 int	enemy_mov(int keycode, t_vars *vars)
 {
 	int	x;
 	int	y;
-	int	go;
+	int	i;
 
 	printf("enemy x : %d\n", vars->map.enemy.position_x);
 	printf("enemy y : %d\n", vars->map.enemy.position_y);
 	x = vars->map.enemy.position_x;
 	y = vars->map.enemy.position_y;
+	i = rand() % 4;
 	if (keycode == W || keycode == A || keycode == S || keycode == D
 		|| keycode == UP || keycode == DOWN || keycode == LEFT
 		|| keycode == RIGHT)
 	{
-		go = way_to_player(vars, x, y);
-		printf("go = %d\n", go);
-		if (go == vars->map.enemy.up)
+		if (i == 0)
 			enemy_run_game(vars, x - 1, y);
-		else if (go == vars->map.enemy.left)
+		else if (i == 1)
 			enemy_run_game(vars, x, y - 1);
-		else if (go == vars->map.enemy.down)
+		else if (i == 2)
 			enemy_run_game(vars, x + 1, y);
-		else
+		else if (i == 3)
 			enemy_run_game(vars, x, y + 1);
 	}
-	else
-		ft_print_error("error : enemy mov\n");
 	return (0);
 }
 
-// ENEMY_MOV QUI MARCHE
+// int	way_to_player(t_vars *vars, int enemy_x, int enemy_y)
+//{
+//	int	player_x;
+//	int	player_y;
+
+//	player_x = vars->map.player.position_x;
+//	player_y = vars->map.player.position_y;
+//	vars->map.enemy.diff_x = player_x - enemy_x;
+//	vars->map.enemy.diff_y = player_y - enemy_y;
+//	if (vars->map.enemy.diff_x < 0)
+//		vars->map.enemy.diff_x = -vars->map.enemy.diff_x;
+//	if (vars->map.enemy.diff_y < 0)
+//		vars->map.enemy.diff_y = -vars->map.enemy.diff_y;
+//	if (vars->map.enemy.diff_x >= vars->map.enemy.diff_y)
+//	{
+//		if (vars->map.enemy.diff_y >= 0)
+//			return (vars->map.enemy.diff_x);
+//		else
+//			return (-vars->map.enemy.diff_x);
+//	}
+//	else
+//	{
+//		if (vars->map.enemy.diff_x >= 0)
+//			return (vars->map.enemy.diff_y);
+//		else
+//			return (-vars->map.enemy.diff_y);
+//	}
+//}
+
 // int	enemy_mov(int keycode, t_vars *vars)
 //{
 //	int	x;
 //	int	y;
-//	int	i;
+//	int	go;
 
 //	printf("enemy x : %d\n", vars->map.enemy.position_x);
 //	printf("enemy y : %d\n", vars->map.enemy.position_y);
 //	x = vars->map.enemy.position_x;
 //	y = vars->map.enemy.position_y;
-//	i = rand() % 4;
 //	if (keycode == W || keycode == A || keycode == S || keycode == D
 //		|| keycode == UP || keycode == DOWN || keycode == LEFT
 //		|| keycode == RIGHT)
 //	{
-//		if (i == 0)
+//		go = way_to_player(vars, x, y);
+//		printf("go = %d\n", go);
+//		if (go == -vars->map.enemy.diff_x)
 //			enemy_run_game(vars, x - 1, y);
-//		else if (i == 1)
+//		else if (go == -vars->map.enemy.diff_y)
 //			enemy_run_game(vars, x, y - 1);
-//		else if (i == 2)
+//		else if (go == vars->map.enemy.diff_x)
 //			enemy_run_game(vars, x + 1, y);
-//		else if (i == 3)
+//		else
 //			enemy_run_game(vars, x, y + 1);
 //	}
 //	else
