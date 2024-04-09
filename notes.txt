@@ -72,3 +72,15 @@ Suite :
 Sinon SUITE :
     - trouver vers ou l'enemy doit aller
     - corriger player traverse enemy
+
+9 avril : implemnter les animations
+    - faire animations a tous les murs
+    - le jeu ne marche plus
+bon je melange un peu les pinceaux:
+    - animation exit en feu ? --> gerer passage du player lorsque exit_locked
+        + faire une image exit_unlocked
+    - animation player ?
+    - gerer player ne passe pas par exit
+SUITE :
+    - regler flood_fill : no valid way alors qu'il y en a un
+    - rajouter regle makefile pour mettre object dans un dossier

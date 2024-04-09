@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:13:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/08 18:13:55 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/09 19:47:52 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 		if (vars->map.array[new_pos_x][new_pos_y] == 'C')
 		{
 			vars->counter.collect--;
-			write(1, "---> Weed pulled out! :)\n", 25);
+			write(1, "---> +1 water!\n", 15);
 			if (vars->counter.collect == 0)
 			{
 				vars->game.exit_unlocked = true;
-				write(1, "===>> All clean ! ^^\n", 21);
+				write(1, "===>> Puts out the fire!!!!\n", 28);
 			}
 		}
 		vars->map.array[new_pos_x][new_pos_y] = 'P';
@@ -49,7 +49,8 @@ void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 			&& vars->game.exit_unlocked == true)
 		|| vars->map.array[new_pos_x][new_pos_y] == 'e')
 		close_window(vars);
-	else if (vars->map.array[new_pos_x][new_pos_y] == '1')
+	else if (vars->map.array[new_pos_x][new_pos_y] == '1'
+		|| vars->map.array[new_pos_x][new_pos_y] == 'E')
 		return ;
 	update_player_position(vars, new_pos_x, new_pos_y);
 	ft_fill_window(vars);

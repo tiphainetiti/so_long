@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 19:16:50 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/08 18:06:37 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/09 20:06:06 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ bool	ft_is_playable(t_map *map)
 
 void	ft_flood_fill(t_map map, t_counter *counter, int x, int y)
 {
-	if (map.copy_map[x][y] == 'C')
-		counter->collect++;
 	if (map.copy_map[x][y] == 'E')
 		counter->exit++;
-	if (map.copy_map[x][y] != '1')
+	if (map.copy_map[x][y] == 'C')
+		counter->collect++;
+	if (map.copy_map[x][y] != '1' && map.copy_map[x][y] != 'E')
 	{
 		map.copy_map[x][y] = '1';
 		ft_flood_fill(map, counter, x - 1, y);

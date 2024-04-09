@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:22:48 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/08 19:00:42 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/09 19:39:35 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ int	enemy_mov(int keycode, t_vars *vars)
 	int	y;
 	int	i;
 
-	printf("enemy x : %d\n", vars->map.enemy.position_x);
-	printf("enemy y : %d\n", vars->map.enemy.position_y);
 	x = vars->map.enemy.position_x;
 	y = vars->map.enemy.position_y;
 	i = rand() % 4;

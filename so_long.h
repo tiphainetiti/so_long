@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:31:06 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/08 17:56:40 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/09 14:45:40 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <time.h>
+# include <unistd.h>
 
 void	print_map(t_vars *vars);
-void	print_map_copy(t_vars *vars);
+int		animations(t_vars *vars);
 
 // ft_error.c
 void	ft_print_error(char *str);

@@ -14,7 +14,7 @@ END = \033[0m
 ## ARGUMENTS
 
 NAME				= so_long
-CFLAGS				= -Wall -Werror -Wextra -g3
+CFLAGS				= -Wall -Werror -Wextra -O3 -g3
 CC					= cc
 LIBFT				= libft
 FT_PRINTF			= ft_printf

@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:35:45 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/08 18:30:08 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/09 19:40:04 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_img_init(t_vars *vars)
 	vars->img.collect = NULL;
 	vars->img.exit_end_game = NULL;
 	vars->img.exit_locked = NULL;
+	vars->img.exit_locked_fire = NULL;
+	vars->img.exit_locked_fire2 = NULL;
 	vars->img.exit_unlocked = NULL;
 	vars->img.grass = NULL;
 	vars->img.player_back_exit = NULL;
@@ -29,6 +31,8 @@ void	ft_img_init(t_vars *vars)
 	vars->img.player_right_exit = NULL;
 	vars->img.player_right_grass = NULL;
 	vars->img.wall = NULL;
+	vars->img.wall2 = NULL;
+	vars->img.wall3 = NULL;
 	vars->img.height = 0;
 	vars->img.width = 0;
 }
@@ -76,12 +80,22 @@ void	ft_img(t_vars *vars)
 	ft_img_init(vars);
 	vars->img.wall = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "wall.xpm",
 			&vars->img.width, &vars->img.height);
+	vars->img.wall2 = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "wall2.xpm",
+			&vars->img.width, &vars->img.height);
+	vars->img.wall3 = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "wall3.xpm",
+			&vars->img.width, &vars->img.height);
 	vars->img.grass = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "grass.xpm",
 			&vars->img.width, &vars->img.height);
 	vars->img.collect = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "collect.xpm", &vars->img.width, &vars->img.height);
+			IMG_PATH "collect_water.xpm", &vars->img.width, &vars->img.height);
 	vars->img.exit_locked = mlx_xpm_file_to_image(vars->mlx.mlx,
 			IMG_PATH "exit_locked.xpm", &vars->img.width, &vars->img.height);
+	vars->img.exit_locked_fire = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "exit_locked_fire.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.exit_locked_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "exit_locked_fire2.xpm", &vars->img.width,
+			&vars->img.height);
 	vars->img.exit_unlocked = mlx_xpm_file_to_image(vars->mlx.mlx,
 			IMG_PATH "exit_unlocked.xpm", &vars->img.width, &vars->img.height);
 	vars->img.exit_end_game = mlx_xpm_file_to_image(vars->mlx.mlx,
@@ -163,7 +177,6 @@ void	ft_fill_window(t_vars *vars)
 
 	x = 0;
 	img = 0;
-	print_map(vars);
 	while (x < vars->map.height)
 	{
 		y = 0;
