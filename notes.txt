@@ -84,3 +84,8 @@ bon je melange un peu les pinceaux:
 SUITE :
     - regler flood_fill : no valid way alors qu'il y en a un
     - rajouter regle makefile pour mettre object dans un dossier
+
+10 avril:
+    - !!!!!! mettre commentaires en anglais !!!!
+    - destroy image en plus (valgrind)
+    - faire tri des images (ancien exit)

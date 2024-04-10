@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:13:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/09 19:47:52 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 13:42:11 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ void	ft_start_game(t_vars *vars)
 // Traiter la commande selon la direction dans la map
 void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 {
-	int	x;
-	int	y;
-
-	x = vars->map.player.position_x;
-	y = vars->map.player.position_y;
 	if (vars->map.array[new_pos_x][new_pos_y] == 'C'
 		|| vars->map.array[new_pos_x][new_pos_y] == '0')
 	{
@@ -49,8 +44,7 @@ void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 			&& vars->game.exit_unlocked == true)
 		|| vars->map.array[new_pos_x][new_pos_y] == 'e')
 		close_window(vars);
-	else if (vars->map.array[new_pos_x][new_pos_y] == '1'
-		|| vars->map.array[new_pos_x][new_pos_y] == 'E')
+	else if (vars->map.array[new_pos_x][new_pos_y] == '1')
 		return ;
 	update_player_position(vars, new_pos_x, new_pos_y);
 	ft_fill_window(vars);

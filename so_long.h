@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:31:06 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/09 14:45:40 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 13:56:06 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <unistd.h>
 
 void	print_map(t_vars *vars);
-int		animations(t_vars *vars);
+void	print_map_copy(t_map map);
 
 // ft_error.c
 void	ft_print_error(char *str);
@@ -76,5 +76,8 @@ int		print_mov(t_vars *vars);
 // bonus_ennemy.c
 void	init_enemy_position(t_vars *vars);
 int		enemy_mov(int keycode, t_vars *vars);
+
+// animations.c
+int		animations(t_vars *vars);
 
 #endif

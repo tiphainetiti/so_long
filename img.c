@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:35:45 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/09 19:40:04 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 13:14:02 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,34 @@ void	ft_img_player(t_vars *vars)
 			&vars->img.height);
 }
 
+void	ft_img_exit_fire(t_vars *vars)
+{
+	vars->img.player_front_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_front_exit_fire1.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.player_front_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_front_exit_fire2.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.player_back_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_back_exit_fire1.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.player_back_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_back_exit_fire2.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.player_right_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_right_exit_fire1.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.player_right_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_right_exit_fire2.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.player_left_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_left_exit_fire1.xpm", &vars->img.width,
+			&vars->img.height);
+	vars->img.player_left_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
+			IMG_PATH "player_left_exit_fire2.xpm", &vars->img.width,
+			&vars->img.height);
+}
+
 // Charger les images
 void	ft_img(t_vars *vars)
 {
@@ -102,6 +130,7 @@ void	ft_img(t_vars *vars)
 			IMG_PATH "exit_end_game.xpm", &vars->img.width, &vars->img.height);
 	ft_img_player(vars);
 	ft_img_enemy(vars);
+	ft_img_exit_fire(vars);
 	ft_error_img(vars);
 }
 
@@ -131,18 +160,18 @@ void	*exit_texture(t_vars vars)
 	if (x == ft_find_x(&vars.map, 'E') && y == ft_find_y(&vars.map, 'E'))
 	{
 		if (vars.game.keycode == W || vars.game.keycode == UP)
-			return (vars.img.player_back_exit);
+			return (vars.img.player_back_exit_fire1);
 		else if (vars.game.keycode == A || vars.game.keycode == LEFT)
-			return (vars.img.player_left_exit);
+			return (vars.img.player_left_exit_fire1);
 		else if (vars.game.keycode == S || vars.game.keycode == DOWN)
-			return (vars.img.player_front_exit);
+			return (vars.img.player_front_exit_fire1);
 		else if (vars.game.keycode == D || vars.game.keycode == RIGHT)
-			return (vars.img.player_right_exit);
+			return (vars.img.player_right_exit_fire1);
 		else
-			return (vars.img.exit_locked);
+			return (vars.img.exit_locked_fire);
 	}
 	else
-		return (vars.img.exit_locked);
+		return (vars.img.exit_locked_fire);
 }
 
 // Trouver la bonne texture selon la map

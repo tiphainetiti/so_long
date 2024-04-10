@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 13:12:34 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/09 19:34:52 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 13:09:26 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@ typedef struct s_img
 	void		*player_back_exit;
 	void		*player_left_exit;
 	void		*player_right_exit;
+	void		*player_front_exit_fire1;
+	void		*player_back_exit_fire1;
+	void		*player_left_exit_fire1;
+	void		*player_right_exit_fire1;
+	void		*player_front_exit_fire2;
+	void		*player_back_exit_fire2;
+	void		*player_left_exit_fire2;
+	void		*player_right_exit_fire2;
 	void		*enemy_front_grass;
 	int			width;
 	int			height;
