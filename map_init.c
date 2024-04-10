@@ -6,41 +6,11 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:13:01 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/08 17:21:25 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:35:39 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// Initialiser mes variabes
-void	ft_vars_init(t_vars *vars)
-{
-	vars->game.keycode = 0;
-	vars->game.exit_unlocked = false;
-	vars->game.front = false;
-	vars->game.back = false;
-	vars->game.left = false;
-	vars->game.right = false;
-	vars->game.win = false;
-	vars->movements = 0;
-	vars->map.array = NULL;
-	vars->map.exit = 0;
-	vars->map.player.i = 0;
-	vars->map.player.position_x = 0;
-	vars->map.player.position_y = 0;
-	vars->map.enemy.position_x = 0;
-	vars->map.enemy.position_y = 0;
-	vars->map.enemy.diff_x = 0;
-	vars->map.enemy.diff_y = 0;
-	vars->map.enemy.down = 0;
-	vars->map.enemy.up = 0;
-	vars->map.enemy.left = 0;
-	vars->map.enemy.right = 0;
-	vars->map.wall = 0;
-	vars->map.collect = 0;
-	vars->counter.collect = 0;
-	vars->counter.exit = 0;
-}
 
 char	*ft_free_strjoin(char *all_av, char *new_av)
 {

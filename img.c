@@ -6,133 +6,11 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:35:45 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/10 13:14:02 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:34:52 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// Initialiser les images
-void	ft_img_init(t_vars *vars)
-{
-	vars->img.collect = NULL;
-	vars->img.exit_end_game = NULL;
-	vars->img.exit_locked = NULL;
-	vars->img.exit_locked_fire = NULL;
-	vars->img.exit_locked_fire2 = NULL;
-	vars->img.exit_unlocked = NULL;
-	vars->img.grass = NULL;
-	vars->img.player_back_exit = NULL;
-	vars->img.player_back_grass = NULL;
-	vars->img.player_front_exit = NULL;
-	vars->img.player_front_grass = NULL;
-	vars->img.player_left_exit = NULL;
-	vars->img.player_left_grass = NULL;
-	vars->img.player_right_exit = NULL;
-	vars->img.player_right_grass = NULL;
-	vars->img.wall = NULL;
-	vars->img.wall2 = NULL;
-	vars->img.wall3 = NULL;
-	vars->img.height = 0;
-	vars->img.width = 0;
-}
-
-// Charger les images de enemy
-void	ft_img_enemy(t_vars *vars)
-{
-	vars->img.enemy_front_grass = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "enemy_front_grass2.xpm", &vars->img.width,
-			&vars->img.height);
-}
-
-// Charger les images de player
-void	ft_img_player(t_vars *vars)
-{
-	vars->img.player_front_grass = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_front_grass.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_back_grass = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_back_grass.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_left_grass = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_left_grass.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_right_grass = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_right_grass.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_front_exit = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_front_exit.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_back_exit = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_back_exit.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_left_exit = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_left_exit.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_right_exit = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_right_exit.xpm", &vars->img.width,
-			&vars->img.height);
-}
-
-void	ft_img_exit_fire(t_vars *vars)
-{
-	vars->img.player_front_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_front_exit_fire1.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_front_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_front_exit_fire2.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_back_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_back_exit_fire1.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_back_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_back_exit_fire2.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_right_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_right_exit_fire1.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_right_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_right_exit_fire2.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_left_exit_fire1 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_left_exit_fire1.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.player_left_exit_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "player_left_exit_fire2.xpm", &vars->img.width,
-			&vars->img.height);
-}
-
-// Charger les images
-void	ft_img(t_vars *vars)
-{
-	ft_img_init(vars);
-	vars->img.wall = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "wall.xpm",
-			&vars->img.width, &vars->img.height);
-	vars->img.wall2 = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "wall2.xpm",
-			&vars->img.width, &vars->img.height);
-	vars->img.wall3 = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "wall3.xpm",
-			&vars->img.width, &vars->img.height);
-	vars->img.grass = mlx_xpm_file_to_image(vars->mlx.mlx, IMG_PATH "grass.xpm",
-			&vars->img.width, &vars->img.height);
-	vars->img.collect = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "collect_water.xpm", &vars->img.width, &vars->img.height);
-	vars->img.exit_locked = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "exit_locked.xpm", &vars->img.width, &vars->img.height);
-	vars->img.exit_locked_fire = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "exit_locked_fire.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.exit_locked_fire2 = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "exit_locked_fire2.xpm", &vars->img.width,
-			&vars->img.height);
-	vars->img.exit_unlocked = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "exit_unlocked.xpm", &vars->img.width, &vars->img.height);
-	vars->img.exit_end_game = mlx_xpm_file_to_image(vars->mlx.mlx,
-			IMG_PATH "exit_end_game.xpm", &vars->img.width, &vars->img.height);
-	ft_img_player(vars);
-	ft_img_enemy(vars);
-	ft_img_exit_fire(vars);
-	ft_error_img(vars);
-}
 
 // Trouver l'image de player adpatee
 void	*player_texture(t_vars vars)
@@ -168,10 +46,10 @@ void	*exit_texture(t_vars vars)
 		else if (vars.game.keycode == D || vars.game.keycode == RIGHT)
 			return (vars.img.player_right_exit_fire1);
 		else
-			return (vars.img.exit_locked_fire);
+			return (vars.img.exit_locked_fire1);
 	}
 	else
-		return (vars.img.exit_locked_fire);
+		return (vars.img.exit_locked_fire1);
 }
 
 // Trouver la bonne texture selon la map
@@ -188,7 +66,7 @@ void	*ft_find_texture(char element, t_vars vars)
 	else if (element == 'E' && vars.game.exit_unlocked == false)
 		return (exit_texture(vars));
 	else if (element == 'E' && vars.game.exit_unlocked == true)
-		return (vars.img.exit_unlocked);
+		return (vars.img.exit_unlocked_fire1);
 	else if (element == 'e')
 		return (vars.img.enemy_front_grass);
 	else

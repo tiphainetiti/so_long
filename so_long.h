@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:31:06 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/10 13:56:06 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:45:15 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,19 @@ void	ft_security_img(t_vars *vars, int img);
 
 // map_init.c
 char	*ft_free_strjoin(char *all_av, char *new_av);
-void	ft_vars_init(t_vars *vars);
+void	ft_empty_map(t_vars *vars);
+void	ft_empty_line(t_vars *vars);
 char	**ft_get_map(t_vars *vars);
 void	ft_map(t_vars *vars);
 
 // map_parsing.c
+bool	ft_is_rectangular(t_map *map);
+bool	ft_is_playable(t_map *map);
+void	ft_flood_fill(t_map map, t_counter *counter, int x, int y);
+bool	ft_valid_way(t_map *map, t_counter *counter);
 bool	ft_map_parsing(t_map *map, t_counter *counter);
 
-// map_utils.c
+// map_utils1.c
 int		ft_get_x(t_map *map);
 int		ft_get_y(t_map *map);
 int		ft_find_x(t_map *map, char element);
@@ -56,18 +61,32 @@ bool	ft_is_big_enough(t_map *map);
 void	ft_copy_map(t_map *map);
 
 // img.c
-void	ft_img(t_vars *vars);
+void	*player_texture(t_vars vars);
+void	*exit_texture(t_vars vars);
 void	*ft_find_texture(char element, t_vars vars);
 void	ft_fill_window(t_vars *vars);
 
-// game.
+// img_load.c
+void	ft_img_enemy(t_vars *vars);
+void	ft_img_player(t_vars *vars);
+void	ft_img_exit_fire(t_vars *vars);
+void	ft_img(t_vars *vars);
+
+// game.c
 void	ft_start_game(t_vars *vars);
+void	run_game(t_vars *vars, int new_pos_x, int new_pos_y);
 int		key_handler(int keycode, t_vars *vars);
 
 // game_utils.c
+void	destroy_img_enemy(t_vars *vars);
+void	destroy_img_player(t_vars *vars);
+void	destroy_img(t_vars *vars);
 int		close_window(t_vars *vars);
 void	update_player_position(t_vars *vars, int new_pos_x, int new_pos_y);
-void	destroy_img(t_vars *vars);
+
+// struct_init.c
+void	ft_vars_init(t_vars *vars);
+void	ft_img_init(t_vars *vars);
 
 // BONUS :
 // bous_mov_count.c
@@ -75,9 +94,15 @@ int		print_mov(t_vars *vars);
 
 // bonus_ennemy.c
 void	init_enemy_position(t_vars *vars);
+void	update_enemy_position(t_vars *vars, int new_pos_x, int new_pos_y);
+void	enemy_run_game(t_vars *vars, int new_pos_x, int new_pos_y);
 int		enemy_mov(int keycode, t_vars *vars);
 
 // animations.c
+void	animation_player_1(t_vars *vars, int x, int y);
+void	animation_player_2(t_vars *vars, int x, int y);
+void	animation_exit_locked(t_vars *vars, int x, int y);
+void	animation_exit_unlocked(t_vars *vars, int x, int y);
 int		animations(t_vars *vars);
 
 #endif

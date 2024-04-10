@@ -6,14 +6,13 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 13:12:34 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/10 13:09:26 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:01:04 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 # define IMG_PATH "img/"
-# define REFRESH_RATE 0.5
 # include <stdbool.h>
 
 typedef struct s_player
@@ -72,22 +71,15 @@ typedef struct s_img
 {
 	void		*grass;
 	void		*wall;
-	void		*wall2;
-	void		*wall3;
 	void		*collect;
-	void		*exit_locked;
-	void		*exit_locked_fire;
+	void		*exit_locked_fire1;
 	void		*exit_locked_fire2;
-	void		*exit_unlocked;
-	void		*exit_end_game;
+	void		*exit_unlocked_fire1;
+	void		*exit_unlocked_fire2;
 	void		*player_front_grass;
 	void		*player_back_grass;
 	void		*player_left_grass;
 	void		*player_right_grass;
-	void		*player_front_exit;
-	void		*player_back_exit;
-	void		*player_left_exit;
-	void		*player_right_exit;
 	void		*player_front_exit_fire1;
 	void		*player_back_exit_fire1;
 	void		*player_left_exit_fire1;

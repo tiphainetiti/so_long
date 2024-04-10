@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 16:18:49 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/04 12:17:42 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:19:44 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,30 @@ void	destroy_img_enemy(t_vars *vars)
 
 void	destroy_img_player(t_vars *vars)
 {
-	if (vars->img.player_back_exit)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.player_back_exit);
-	if (vars->img.player_back_grass)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.player_back_grass);
-	if (vars->img.player_front_exit)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.player_front_exit);
 	if (vars->img.player_front_grass)
 		mlx_destroy_image(vars->mlx.mlx, vars->img.player_front_grass);
-	if (vars->img.player_left_exit)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.player_left_exit);
+	if (vars->img.player_back_grass)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_back_grass);
 	if (vars->img.player_left_grass)
 		mlx_destroy_image(vars->mlx.mlx, vars->img.player_left_grass);
-	if (vars->img.player_right_exit)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.player_right_exit);
 	if (vars->img.player_right_grass)
 		mlx_destroy_image(vars->mlx.mlx, vars->img.player_right_grass);
+	if (vars->img.player_back_exit_fire1)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_back_exit_fire1);
+	if (vars->img.player_back_exit_fire2)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_back_exit_fire2);
+	if (vars->img.player_front_exit_fire1)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_front_exit_fire1);
+	if (vars->img.player_front_exit_fire2)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_front_exit_fire2);
+	if (vars->img.player_left_exit_fire1)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_left_exit_fire1);
+	if (vars->img.player_left_exit_fire2)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_left_exit_fire2);
+	if (vars->img.player_right_exit_fire1)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_right_exit_fire1);
+	if (vars->img.player_right_exit_fire2)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.player_right_exit_fire2);
 }
 
 void	destroy_img(t_vars *vars)
@@ -46,12 +54,14 @@ void	destroy_img(t_vars *vars)
 		mlx_destroy_image(vars->mlx.mlx, vars->img.wall);
 	if (vars->img.grass)
 		mlx_destroy_image(vars->mlx.mlx, vars->img.grass);
-	if (vars->img.exit_end_game)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.exit_end_game);
-	if (vars->img.exit_locked)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.exit_locked);
-	if (vars->img.exit_unlocked)
-		mlx_destroy_image(vars->mlx.mlx, vars->img.exit_unlocked);
+	if (vars->img.exit_locked_fire1)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.exit_locked_fire1);
+	if (vars->img.exit_locked_fire2)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.exit_locked_fire2);
+	if (vars->img.exit_unlocked_fire1)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.exit_unlocked_fire1);
+	if (vars->img.exit_unlocked_fire2)
+		mlx_destroy_image(vars->mlx.mlx, vars->img.exit_unlocked_fire2);
 	destroy_img_player(vars);
 	destroy_img_enemy(vars);
 }

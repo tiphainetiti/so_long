@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:47:19 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/04 16:06:07 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:13:25 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,18 @@ void	ft_error_map(t_vars *vars)
 void	ft_error_img(t_vars *vars)
 {
 	if (!vars->img.collect || !vars->img.wall || !vars->img.grass
-		|| !vars->img.exit_end_game || !vars->img.exit_locked
-		|| !vars->img.player_back_grass || !vars->img.player_front_exit
-		|| !vars->img.player_front_grass || !vars->img.player_left_exit
-		|| !vars->img.player_left_grass || !vars->img.player_right_exit
-		|| !vars->img.player_right_grass || !vars->img.exit_unlocked
-		|| !vars->img.player_back_exit || !vars->img.enemy_front_grass)
+		|| !vars->img.player_front_grass || !vars->img.player_back_grass
+		|| !vars->img.player_left_grass || !vars->img.player_right_grass
+		|| !vars->img.player_front_exit_fire1
+		|| !vars->img.player_back_exit_fire1
+		|| !vars->img.player_left_exit_fire1
+		|| !vars->img.player_right_exit_fire1
+		|| !vars->img.player_front_exit_fire2
+		|| !vars->img.player_back_exit_fire2
+		|| !vars->img.player_left_exit_fire2
+		|| !vars->img.player_right_exit_fire2 || !vars->img.exit_locked_fire1
+		|| !vars->img.exit_locked_fire2 || !vars->img.exit_unlocked_fire1
+		|| !vars->img.exit_unlocked_fire2 || !vars->img.enemy_front_grass)
 	{
 		ft_print_error("Image missing.");
 		ft_free_tab(vars->map.array);

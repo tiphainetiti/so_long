@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:30:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/10 13:55:39 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:43:01 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,6 @@ void	print_map(t_vars *vars)
 	while (vars->map.array[i])
 	{
 		printf("row [%d] : %s\n", i, vars->map.array[i]);
-		i++;
-	}
-}
-
-void	print_map_copy(t_map map)
-{
-	int	i;
-
-	i = 0;
-	while (map.copy_map[i])
-	{
-		printf("COPY row [%d] : %s\n", i, map.copy_map[i]);
 		i++;
 	}
 }

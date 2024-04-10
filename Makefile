@@ -24,16 +24,19 @@ FT_PRINTF			= ft_printf
 ## SOURCES
 
 SRC_FILES		=	main \
+					struct_init \
 					map_init \
 					map_parsing \
 					map_utils1 \
 					map_utils2 \
 					img \
+					img_load \
 					ft_error \
 					game \
 					game_utils \
 					bonus_mov_count \
 					bonus_enemy \
+					animations \
 
 SRC_FILES_2			= 	
 

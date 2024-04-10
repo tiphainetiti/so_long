@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:49:57 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/10 13:55:35 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/10 17:26:48 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,28 @@ void	animation_player_1(t_vars *vars, int x, int y)
 	}
 }
 
-void	animation_exit(t_vars *vars, int x, int y)
+void	animation_exit_locked(t_vars *vars, int x, int y)
 {
 	mlx_put_image_to_window(vars->mlx.mlx, vars->mlx.wind.wind,
-		vars->img.exit_locked_fire, x, y);
+		vars->img.exit_locked_fire1, x, y);
 	mlx_do_sync(vars->mlx.mlx);
 	usleep(100000);
 	mlx_put_image_to_window(vars->mlx.mlx, vars->mlx.wind.wind,
 		vars->img.exit_locked_fire2, x, y);
 	mlx_do_sync(vars->mlx.mlx);
 	usleep(100000);
+}
+
+void	animation_exit_unlocked(t_vars *vars, int x, int y)
+{
 	mlx_put_image_to_window(vars->mlx.mlx, vars->mlx.wind.wind,
-		vars->img.exit_locked_fire, x, y);
+		vars->img.exit_unlocked_fire1, x, y);
 	mlx_do_sync(vars->mlx.mlx);
+	usleep(100000);
+	mlx_put_image_to_window(vars->mlx.mlx, vars->mlx.wind.wind,
+		vars->img.exit_unlocked_fire2, x, y);
+	mlx_do_sync(vars->mlx.mlx);
+	usleep(100000);
 }
 
 int	animations(t_vars *vars)
@@ -93,7 +102,9 @@ int	animations(t_vars *vars)
 		animation_player_1(vars, x, y);
 		animation_player_2(vars, x, y);
 	}
+	else if (vars->counter.collect == 0 && vars->game.exit_unlocked == true)
+		animation_exit_unlocked(vars, x, y);
 	else
-		animation_exit(vars, x, y);
+		animation_exit_locked(vars, x, y);
 	return (0);
 }

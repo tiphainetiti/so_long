@@ -89,3 +89,5 @@ SUITE :
     - !!!!!! mettre commentaires en anglais !!!!
     - destroy image en plus (valgrind)
     - faire tri des images (ancien exit)
+YEAHHHH
+SUITE : norminette + commentaires en anglais + regle makefile .o
