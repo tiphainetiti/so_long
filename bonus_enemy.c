@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:22:48 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/10 17:29:24 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/11 16:51:47 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 void	init_enemy_position(t_vars *vars)
 {
-	const int	min_x = 1;
 	const int	max_x = vars->map.height - 2;
-	const int	min_y = 1;
 	const int	max_y = vars->map.width - 2;
+	int			enemy_x;
+	int			enemy_y;
 
 	srand(time(NULL));
-	vars->map.enemy.position_x = min_x + rand() % (max_x - min_x + 1);
-	vars->map.enemy.position_y = min_y + rand() % (max_y - min_y + 1);
-	while (vars->map.array[vars->map.enemy.position_x][vars->map.enemy.position_y] != '0')
+	enemy_x = 1 + rand() % max_x;
+	enemy_y = 1 + rand() % max_y;
+	while (vars->map.array[enemy_x][enemy_y] != '0')
 	{
-		vars->map.enemy.position_x = min_x + rand() % (max_x - min_x + 1);
-		vars->map.enemy.position_y = min_y + rand() % (max_y - min_y + 1);
+		enemy_x = 1 + rand() % max_x;
+		enemy_y = 1 + rand() % max_y;
 	}
-	vars->map.array[vars->map.enemy.position_x][vars->map.enemy.position_y] = 'e';
+	vars->map.array[enemy_x][enemy_y] = 'e';
+	vars->map.enemy.position_x = enemy_x;
+	vars->map.enemy.position_y = enemy_y;
 }
 
 void	update_enemy_position(t_vars *vars, int new_pos_x, int new_pos_y)

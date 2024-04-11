@@ -6,7 +6,7 @@
 /*   By: tlay <tlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:13:23 by tlay              #+#    #+#             */
-/*   Updated: 2024/04/10 17:36:01 by tlay             ###   ########.fr       */
+/*   Updated: 2024/04/11 17:27:17 by tlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	ft_start_game(t_vars *vars)
 }
 
 // Traiter la commande selon la direction dans la map
-void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
+void	run_game(t_vars *vars, int new_x, int new_y)
 {
-	if (vars->map.array[new_pos_x][new_pos_y] == 'C'
-		|| vars->map.array[new_pos_x][new_pos_y] == '0')
+	if (vars->map.array[new_x][new_y] == 'C'
+		|| vars->map.array[new_x][new_y] == '0')
 	{
-		if (vars->map.array[new_pos_x][new_pos_y] == 'C')
+		if (vars->map.array[new_x][new_y] == 'C')
 		{
 			vars->counter.collect--;
 			write(1, "---> +1 water!\n", 15);
@@ -38,15 +38,15 @@ void	run_game(t_vars *vars, int new_pos_x, int new_pos_y)
 				write(1, "===>> Puts out the fire!!!!\n", 28);
 			}
 		}
-		vars->map.array[new_pos_x][new_pos_y] = 'P';
+		vars->map.array[new_x][new_y] = 'P';
 	}
-	else if ((vars->map.array[new_pos_x][new_pos_y] == 'E'
-			&& vars->game.exit_unlocked == true)
-		|| vars->map.array[new_pos_x][new_pos_y] == 'e')
+	else if (vars->map.array[new_x][new_y] == 'e'
+		|| (vars->map.array[new_x][new_y] == 'E'
+			&& vars->game.exit_unlocked == true))
 		close_window(vars);
-	else if (vars->map.array[new_pos_x][new_pos_y] == '1')
+	else if (vars->map.array[new_x][new_y] == '1')
 		return ;
-	update_player_position(vars, new_pos_x, new_pos_y);
+	update_player_position(vars, new_x, new_y);
 	ft_fill_window(vars);
 }
 
