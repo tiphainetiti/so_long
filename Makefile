@@ -19,6 +19,7 @@ CC					= cc
 LIBFT				= libft
 FT_PRINTF			= ft_printf
 BUILD				= objs/
+INCLUDE				= so_long.h
 
 
 #################################################
@@ -39,7 +40,7 @@ SRC_FILES		=	main \
 					bonus_enemy \
 					animations \
 
-SRC_FILES_2			= 	
+SRC			= 	$(addprefix srcs/, $(SRC_FILES))
 
 
 OBJ_FILES		= $(addprefix $(BUILD), $(addsuffix .o, $(SRC_FILES)))
@@ -49,18 +50,17 @@ OBJ_FILES		= $(addprefix $(BUILD), $(addsuffix .o, $(SRC_FILES)))
 #################################################
 ## RULES
 
-
-objs/%.o: %.c
-	@mkdir -p ${BUILD}
-	@${CC} ${CFLAGS} -c $< -o $@
-#@echo "$(YELLOW)Object's compilation done.$(END)"
-
-${NAME} : ${OBJ_FILES}
+${NAME} : ${OBJ_FILES} $(INCLUDES)
 	@make --silent -C $(LIBFT)
 	@make --silent -C $(FT_PRINTF)
 	@make --silent -C mlx/
 	@${CC} ${CFLAGS} ${OBJ_FILES} -L $(LIBFT) -lft -L $(FT_PRINTF) -lftprintf mlx/libmlx_Linux.a -L mlx -lXext -lX11 -lm -o ${NAME}
 	@echo "$(GREEN)Compilation done!$(END)"
+
+objs/%.o: srcs/%.c
+	@mkdir -p ${BUILD}
+	@${CC} ${CFLAGS} -c $< -o $@
+#@echo "$(YELLOW)Object's compilation done.$(END)"
 
 all : ${NAME}
 
